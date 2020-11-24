@@ -1,0 +1,1 @@
+bash -c "yoyo apply --database mysql://root:root@192.168.1.35:3306/mydatabase -b  ../back/migrations"
