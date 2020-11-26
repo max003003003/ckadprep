@@ -10,6 +10,7 @@ import os
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['SQLALCHEMY_DATABASE_URI']
 app.config['SQLALCHEMY_ECHO'] = True
+app.config['MYSQL_ROOT_PASSWORD'] = os.eviron['MYSQL_ROOT_PASSWORD']
 db = SQLAlchemy(app)
 #app.secret_key = 'changethis'
 @app.route('/api/v1/get-quote', methods=['GET'])
@@ -41,7 +42,9 @@ def set_quote():
         return json.dumps({'success':False}), 500, {'ContentType':'application/json'}
 
     return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
-@app.route('/healthz', methods=['GET']) def healthz():
+
+@app.route('/healthz', methods=['GET'])
+def healthz():
     try:
         db.session.query("1").from_statement("SELECT 1").all()
         return json.dumps({'up':True}), 200, {'ContentType':'application/json'}

@@ -11,6 +11,5 @@ RUN pip install -r requirements.txt
 # Add the API file app.py then run it when the container launches
 
 
-
 COPY back.py /app
 CMD  python back.py
