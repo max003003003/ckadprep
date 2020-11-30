@@ -9,7 +9,6 @@ from flask import request
 import os
 
 app = Flask(__name__)
-
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['SQLALCHEMY_DATABASE_URI']
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['MYSQL_ROOT_PASSWORD'] = os.environ['MYSQL_ROOT_PASSWORD']

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: api
-  name: back
+  name: back-end
   namespace: default
 spec:
   replicas: 1
@@ -16,12 +16,23 @@ spec:
         app: api
     spec:
       containers:
-      - image: eon01/quotes-back:v1
-        name: back
+      - image: max003003003/qoutes-backend:v2
+        name: back-end
+        livenessProbe:
+          tcpSocket:
+            port: 3000
         ports:
         - containerPort: 3000
           name: http
         env:
           - name: SQLALCHEMY_DATABASE_URI
-            value: mysql+pymysql://root:root@data:3306/mydatabase"
+            value: mysql+pymysql://root:root@data:3306/mydatabase
+          - name: MYSQL_ROOT_PASSWORD
+            value: root
+          - name: MYSQL_DATABASE
+            value: root
+          - name: MYSQL_USER
+            value: root
+          - name: MYSQL_PASSWORD
+            value: root
 

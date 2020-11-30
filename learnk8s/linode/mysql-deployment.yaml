@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: eon01/quotes-data:v1
+          image: max003003003/quotes-data:v1
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: root
@@ -31,6 +31,9 @@ spec:
           livenessProbe:
             tcpSocket:
               port: 3306
+            initialDelaySeconds: 120
+            periodSeconds: 30
+
           ports:
             - containerPort: 3306
               name: mysql
