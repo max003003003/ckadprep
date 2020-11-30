@@ -19,10 +19,6 @@ spec:
       containers:
         - name: mysql
           image: eon01/quotes-data:v1
-#          resources:
-#            requests:
-#              cpu: 1
-#              memory: 2Gi
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: root
@@ -44,7 +40,7 @@ spec:
       volumes:
         - name: database
           persistentVolumeClaim:
-            claimName: pvc-example
+            claimName: mysql-pvc
 #      initContainers:
 #        - name: init-db
 #          image: eon01/quotes-data:v1
