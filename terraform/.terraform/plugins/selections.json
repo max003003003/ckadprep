@@ -1,0 +1,6 @@
+{
+  "registry.terraform.io/linode/linode": {
+    "hash": "h1:d3VbB2l74KpoPkSF6FvBxC63urwY2ARDdvtJx0AxX+s=",
+    "version": "1.13.4"
+  }
+}
